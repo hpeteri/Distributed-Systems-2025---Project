@@ -73,6 +73,10 @@ Service between:
 vid_cache and vid_raw  
 client and vid_cache  
 
+#### GetSegment
+
+VideoSegmentRequst -> VideoSegmentResponse
+
 ## Messages
 
 ### VideoSegmentRequest

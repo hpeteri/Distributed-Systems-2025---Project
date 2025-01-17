@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+service VideoSteam {
+
+	/*
+	 */
+	rpc GetSegment (VideoSegmentRequest) returns (VideoSegmentResponse);
+}
+
+/*
+
+ */
+message VideoSegmentRequest {
+
+	int64 ms_start;
+	int64 ms_end;
+}
+
+/*
+
+ */
+message VideoSegmentResponse {
+
+}
