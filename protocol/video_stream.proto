@@ -1,25 +1,28 @@
 syntax = "proto3";
 
-
-service VideoSteam {
-
+service VideoSteam
+{
 	/*
+	 * Retrieved a specific video segment base on the request.
 	 */
 	rpc GetSegment (VideoSegmentRequest) returns (VideoSegmentResponse);
 }
 
 /*
-
+ * Message to request a video segment.
  */
-message VideoSegmentRequest {
-
-	int64 ms_start;
-	int64 ms_end;
+message VideoSegmentRequest
+{
+	uint64 ms_start = 1; // Start time of the segment in milliseconds
+	uint64 ms_end = 2;   // End time of the segment in milliseconds
 }
 
+
 /*
-
+ * Message to respond with a video segment.
  */
-message VideoSegmentResponse {
-
+message VideoSegmentResponse
+{
+	string format = 1; // Format of the video [MP4, MKV]
+	bytes chunk = 2;   // Binary data of the video segment
 }
