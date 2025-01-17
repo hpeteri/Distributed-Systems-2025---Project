@@ -8,7 +8,8 @@ Group Members
 
 # Project Topic - 2. Telco-Edge CDN for Latency-Sensitive Video Streaming
 ## 6-Week outline
-. Introduction: Basic client-server for video streaming.  
+
+1. Introduction: Basic client-server for video streaming.  
 2. Communication: Implement edge–core communication for content requests and updates.  
 3. Time & Consensus: Maintain consistent cache indices across edge nodes via consensus.  
 4. Performance & Scalability: Introduce load balancing between edge nodes to handle high streaming demands.  
