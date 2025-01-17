@@ -61,3 +61,25 @@ Video Databse for raw files
 
 **Service requirements:**  
 - async or sync transmission
+
+# Protocol
+
+Holds interface .proto files
+
+## Services
+
+### VideoSteam
+Service between:  
+vid_cache and vid_raw  
+client and vid_cache  
+
+## Messages
+
+### VideoSegmentRequest
+
+Request of a raw video file segment.
+
+### VideoSegmentResponse
+
+Response of a raw video file segment.
+
