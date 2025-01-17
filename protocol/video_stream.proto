@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-service VideoSteam
+service VideoStream
 {
 	/*
 	 * Retrieved a specific video segment base on the request.
