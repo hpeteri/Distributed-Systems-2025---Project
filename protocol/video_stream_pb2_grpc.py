@@ -34,7 +34,7 @@ class VideoStreamStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetSegment = channel.unary_unary(
+        self.GetSegment = channel.unary_stream(
                 '/VideoStream/GetSegment',
                 request_serializer=video__stream__pb2.VideoSegmentRequest.SerializeToString,
                 response_deserializer=video__stream__pb2.VideoSegmentResponse.FromString,
@@ -55,7 +55,7 @@ class VideoStreamServicer(object):
 
 def add_VideoStreamServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetSegment': grpc.unary_unary_rpc_method_handler(
+            'GetSegment': grpc.unary_stream_rpc_method_handler(
                     servicer.GetSegment,
                     request_deserializer=video__stream__pb2.VideoSegmentRequest.FromString,
                     response_serializer=video__stream__pb2.VideoSegmentResponse.SerializeToString,
@@ -82,7 +82,7 @@ class VideoStream(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(
+        return grpc.experimental.unary_stream(
             request,
             target,
             '/VideoStream/GetSegment',

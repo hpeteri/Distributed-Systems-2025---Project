@@ -5,7 +5,7 @@ service VideoStream
 	/*
 	 * Retrieved a specific video segment base on the request.
 	 */
-	rpc GetSegment (VideoSegmentRequest) returns (VideoSegmentResponse);
+	rpc GetSegment (VideoSegmentRequest) returns (stream VideoSegmentResponse);
 }
 
 /*
@@ -13,8 +13,7 @@ service VideoStream
  */
 message VideoSegmentRequest
 {
-	uint64 ms_start = 1; // Start time of the segment in milliseconds
-	uint64 ms_end = 2;   // End time of the segment in milliseconds
+	uint32 _unused = 1;
 }
 
 
@@ -23,6 +22,6 @@ message VideoSegmentRequest
  */
 message VideoSegmentResponse
 {
-	string format = 1; // Format of the video [MP4, MKV]
-	bytes chunk = 2;   // Binary data of the video segment
+	bytes chunk_data = 1;
+	uint32 chunk_number = 2;
 }
